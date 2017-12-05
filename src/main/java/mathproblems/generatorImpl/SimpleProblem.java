@@ -1,4 +1,4 @@
-package mathproblems.simplegenerator;
+package mathproblems.generatorImpl;
 
 import mathproblems.generator.Operation;
 import mathproblems.generator.Problem;

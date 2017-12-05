@@ -1,4 +1,4 @@
-package mathproblems.simplegenerator;
+package mathproblems.generatorImpl;
 
 import java.util.Iterator;
 
