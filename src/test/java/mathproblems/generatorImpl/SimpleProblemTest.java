@@ -1,9 +1,9 @@
-package mathproblems.generatorImpl;
+package mathproblems.simplegenerator;
 
 import org.junit.Test;
 
 import mathproblems.generator.Operation;
-import mathproblems.generatorImpl.SimpleProblem;
+import mathproblems.simplegenerator.SimpleProblem;
 
 public class SimpleProblemTest {
 	@Test(expected=IllegalArgumentException.class)
