@@ -1,4 +1,4 @@
-package mathproblems.generatorImpl;
+package mathproblems.simplegenerator;
 
 import static org.junit.Assert.assertEquals;
 
@@ -6,9 +6,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 import mathproblems.generator.Operation;
-import mathproblems.generatorImpl.SimpleCalculator;
-import mathproblems.generatorImpl.SimpleProblem;
-import mathproblems.generatorImpl.SimpleProblemSet;
+import mathproblems.simplegenerator.SimpleCalculator;
+import mathproblems.simplegenerator.SimpleProblem;
+import mathproblems.simplegenerator.SimpleProblemSet;
 
 public class SimpleCalculatorTest {
 	private SimpleProblemSet set;
