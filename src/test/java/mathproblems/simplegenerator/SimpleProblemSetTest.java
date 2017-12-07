@@ -17,7 +17,7 @@ public class SimpleProblemSetTest {
 	@Before
 	public void init() {
 		set = new SimpleProblemSet();
-		p = new SimpleProblem(new Operation[] { Operation.Add, Operation.Subtract }, new Integer[] { 1, 2, 3 });
+		p = new SimpleProblem(new Operation[] { Operation.ADD, Operation.SUBTRACT }, new Integer[] { 1, 2, 3 });
 		set.addProblem(p);
 	}
 
@@ -34,7 +34,7 @@ public class SimpleProblemSetTest {
 
 	@Test
 	public void test_addProblem2() {
-		set.addProblem(new Operation[] { Operation.Add, Operation.Subtract }, new Integer[] { 1, 2, 3 });
+		set.addProblem(new Operation[] { Operation.ADD, Operation.SUBTRACT }, new Integer[] { 1, 2, 3 });
 		set.iterator().next();
 		assertTrue(set.iterator().hasNext());
 		SimpleProblem s = set.iterator().next();

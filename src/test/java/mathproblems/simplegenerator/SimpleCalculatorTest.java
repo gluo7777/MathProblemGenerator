@@ -18,8 +18,8 @@ public class SimpleCalculatorTest {
 	@Before
 	public void init() {
 		set = new SimpleProblemSet();
-		p1 = new SimpleProblem(new Operation[] { Operation.Add, Operation.Subtract }, new Integer[] { 1, 2, 3 });
-		p2 = new SimpleProblem(new Operation[] { Operation.Add }, new Integer[] { 1, 2 });
+		p1 = new SimpleProblem(new Operation[] { Operation.ADD, Operation.SUBTRACT }, new Integer[] { 1, 2, 3 });
+		p2 = new SimpleProblem(new Operation[] { Operation.ADD }, new Integer[] { 1, 2 });
 		set.addProblem(p1);
 		set.addProblem(p2);
 		calculator = new SimpleCalculator();
@@ -27,7 +27,7 @@ public class SimpleCalculatorTest {
 	
 	@Test(expected=ArithmeticException.class)
 	public void test_calculate_divideByZero_throwArithmeticException() {
-		SimpleProblem zeroProb = new SimpleProblem(new Operation[] { Operation.Divide }, new Integer[] { 1, 0 });
+		SimpleProblem zeroProb = new SimpleProblem(new Operation[] { Operation.DIVIDE }, new Integer[] { 1, 0 });
 		calculator.calculate(zeroProb);
 	}
 	

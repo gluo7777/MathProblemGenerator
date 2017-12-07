@@ -13,16 +13,16 @@ public class SimpleProblemTest {
 	
 	@Test(expected=IllegalArgumentException.class)
 	public void test_validateArguments_throwIllegalArgumentException_mismatch1() {
-		new SimpleProblem(new Operation[] {Operation.Add}, new Integer[] {1,2,3});
+		new SimpleProblem(new Operation[] {Operation.ADD}, new Integer[] {1,2,3});
 	}
 	
 	@Test(expected=IllegalArgumentException.class)
 	public void test_validateArguments_throwIllegalArgumentException_mismatch2() {
-		new SimpleProblem(new Operation[] {Operation.Add}, new Integer[] {1});
+		new SimpleProblem(new Operation[] {Operation.ADD}, new Integer[] {1});
 	}
 	
 	@Test(expected=IllegalArgumentException.class)
 	public void test_validateArguments_throwIllegalArgumentException_mismatch3() {
-		new SimpleProblem(new Operation[] {Operation.Add,Operation.Subtract}, new Integer[] {1});
+		new SimpleProblem(new Operation[] {Operation.ADD,Operation.SUBTRACT}, new Integer[] {1});
 	}
 }

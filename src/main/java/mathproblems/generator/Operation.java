@@ -5,7 +5,7 @@ import java.util.EnumSet;
 import java.util.Set;
 
 public enum Operation {
-	Add("+"), Subtract("-"), Multiple("x"), Divide("/");
+	ADD("+"), SUBTRACT("-"), MULTIPLY("x"), DIVIDE("/");
 
 	private final String value;
 
