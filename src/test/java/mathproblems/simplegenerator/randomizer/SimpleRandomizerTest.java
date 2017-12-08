@@ -136,6 +136,7 @@ public class SimpleRandomizerTest {
 		returnAndExpectNumber(9, 9, 100000000, 999999999);
 	}
 
+	// TODO investigate number of invocations
 	protected void returnAndExpectNumber(int minDigits, int maxDigits, int minBound, int maxBound) {
 		// generateNumber(1,1):[1,9] -> (1,0) & (9,9)
 		// generateNumber(1,2):[1,99] -> (1,0) & (9,9)
