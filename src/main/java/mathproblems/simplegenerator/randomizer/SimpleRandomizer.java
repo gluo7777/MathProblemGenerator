@@ -11,7 +11,6 @@ import mathproblems.util.RandomGenerator;
 public class SimpleRandomizer implements Randomizer<Integer> {
 
 	private List<Bound<Operation>> bounds;
-//	private Operation operation = null;
 	private int total;
 	private final RandomGenerator gen;
 
@@ -26,28 +25,12 @@ public class SimpleRandomizer implements Randomizer<Integer> {
 	@Override
 	public void setAndMapFrequencies(Map<Operation, Integer> frequencies) {
 		this.bounds = new LinkedList<>();
-		if (frequencies.size() < 1)
-			throw new IllegalArgumentException("Frequency map must contain at least one object.");
 		int total = 0;
 		for (Operation op : frequencies.keySet()) {
-			int probability = frequencies.get(op);
-			if (probability < 0)
-				throw new IllegalArgumentException("Cannot have a negative probabilty.");
-			this.bounds.add(new Bound<Operation>(op, total + 1, total += probability));
+			this.bounds.add(new Bound<Operation>(op, total + 1, total += frequencies.get(op)));
 		}
-		if (total == 0)
-			throw new IllegalArgumentException("Frequency map must contain at least one non-zero probability.");
 		this.total = total;
 	}
-
-	/**
-	 * Used for setting a single operation when mixeMode is false.
-	 * 
-	 * @param operation
-	 */
-	/*public void setSingleOperation(Operation operation) {
-		this.operation = operation;
-	}*/
 
 	@Override
 	public Operation generateOperation(boolean mixedMode) {
@@ -60,10 +43,6 @@ public class SimpleRandomizer implements Randomizer<Integer> {
 					return b.value;
 			}
 		} else {
-			/*
-			 * imagine if freq = {0,0,0,1}
-			 * bounds = {(1,1),(2,2),(3,3),(4,5)
-			 */
 			// returns first non-zero probability
 			for (Bound<Operation> b : bounds)
 				if(b.upper != 0)
@@ -74,10 +53,6 @@ public class SimpleRandomizer implements Randomizer<Integer> {
 
 	@Override
 	public Integer generateNumber(int minDigit, int maxDigit) {
-		if (minDigit <= 0 || minDigit <= 0)
-			throw new IllegalArgumentException("Digits cannot be less than 1");
-		if (maxDigit < minDigit)
-			throw new IllegalArgumentException("A number cannot have fewer maximum digits than minimum digits.");
 		int base = (int) Math.pow(10, gen.randInt(minDigit, maxDigit) - 1), digit = gen.randInt(1, 9) * base;
 		while (base > 1) {
 			base /= 10;
