@@ -2,7 +2,7 @@ package mathproblems.generator;
 
 import java.util.Comparator;
 
-public interface ProblemSet<T extends Problem> extends Iterable<T>{
+public interface ProblemSet<T extends Problem<? extends Number>> extends Iterable<T>{
 	/**
 	 * Add a problem to this collection.
 	 * @param problem to be added

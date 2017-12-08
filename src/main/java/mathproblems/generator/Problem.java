@@ -1,24 +1,24 @@
 package mathproblems.generator;
 
-public abstract class Problem {
+public abstract class Problem<T extends Number> {
 	private final Operation[] operations;
-	private final Number[] operands;
-	private Number result;
+	private final T[] operands;
+	private T result;
 
 	/**
 	 * Constructor calls validateArguments. This method must be overrided to properly conduct argument validation.
 	 * @param operations
 	 * @param operands
 	 */
-	public Problem(Operation[] operations, Number[] operands) {
+	public Problem(Operation[] operations, T[] operands) {
 		validateArguments(operations, operands);
 		this.operations = operations;
 		this.operands = operands;
 	}
 	
-	protected abstract void validateArguments(Operation[] operations, Number[] operands);
+	protected abstract void validateArguments(Operation[] operations, T[] operands);
 
-	public void setResult(Number result) {
+	public void setResult(T result) {
 		this.result = result;
 	}
 
@@ -26,12 +26,17 @@ public abstract class Problem {
 		return operations;
 	}
 
-	public final Number[] getOperands() {
+	public final T[] getOperands() {
 		return operands;
 	}
 
-	public final Number getResult() {
+	public final T getResult() {
 		return result;
+	}
+
+	public void setRemainder(int i) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

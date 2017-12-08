@@ -3,7 +3,7 @@ package mathproblems.simplegenerator;
 import mathproblems.generator.Operation;
 import mathproblems.generator.Problem;
 
-public class IntegerProblem extends Problem {
+public class IntegerProblem extends Problem<Integer> {
 
 	private int remainder;
 
@@ -12,18 +12,18 @@ public class IntegerProblem extends Problem {
 	}
 
 	@Override
-	protected void validateArguments(Operation[] operations, Number[] operands) {
+	protected void validateArguments(Operation[] operations, Integer[] operands) {
 		if (operations.length == 0)
 			throw new IllegalArgumentException("No operations being performed.");
 		if (operations.length + 1 != operands.length)
 			throw new IllegalArgumentException("The number of operands must be equal to operations plus one.");
 	}
 
-	protected final int getRemainder() {
+	protected final Integer getRemainder() {
 		return remainder;
 	}
 
-	protected final void setRemainder(int remainder) {
+	protected final void setRemainder(Integer remainder) {
 		this.remainder = remainder;
 	}
 

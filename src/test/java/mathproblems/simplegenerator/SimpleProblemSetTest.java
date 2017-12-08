@@ -7,17 +7,15 @@ import org.junit.Before;
 import org.junit.Test;
 
 import mathproblems.generator.Operation;
-import mathproblems.simplegenerator.SimpleProblem;
-import mathproblems.simplegenerator.SimpleProblemSet;
 
 public class SimpleProblemSetTest {
 	private SimpleProblemSet set;
-	private SimpleProblem p;
+	private IntegerProblem p;
 
 	@Before
 	public void init() {
 		set = new SimpleProblemSet();
-		p = new SimpleProblem(new Operation[] { Operation.ADD, Operation.SUBTRACT }, new Integer[] { 1, 2, 3 });
+		p = new IntegerProblem(new Operation[] { Operation.ADD, Operation.SUBTRACT }, new Integer[] { 1, 2, 3 });
 		set.addProblem(p);
 	}
 
@@ -28,7 +26,7 @@ public class SimpleProblemSetTest {
 
 	@Test
 	public void test_addProblem1() {
-		SimpleProblem s = set.iterator().next();
+		IntegerProblem s = set.iterator().next();
 		assertEquals(p, s);
 	}
 
@@ -37,7 +35,7 @@ public class SimpleProblemSetTest {
 		set.addProblem(new Operation[] { Operation.ADD, Operation.SUBTRACT }, new Integer[] { 1, 2, 3 });
 		set.iterator().next();
 		assertTrue(set.iterator().hasNext());
-		SimpleProblem s = set.iterator().next();
+		IntegerProblem s = set.iterator().next();
 		assertEquals(p, s);
 	}
 }
