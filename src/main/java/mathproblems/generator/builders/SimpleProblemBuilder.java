@@ -34,7 +34,7 @@ public class SimpleProblemBuilder extends CommonProblemBuilder<Problem<BigDecima
 		
 		this.randomizer.setAndMapFrequencies(super.getFrequencies());
 		
-		set = new LinkedList<>();
+		this.set = new LinkedList<>();
 
 		SimpleCalculator calculator = new SimpleCalculator();
 
