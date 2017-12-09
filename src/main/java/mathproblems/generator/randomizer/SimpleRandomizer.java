@@ -1,24 +1,23 @@
-package mathproblems.simplegenerator.randomizer;
+package mathproblems.generator.randomizer;
 
+import java.math.BigDecimal;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
 import mathproblems.generator.Operation;
-import mathproblems.generator.Randomizer;
-import mathproblems.util.RandomGenerator;
 
-public class SimpleRandomizer implements Randomizer<Integer> {
+public class SimpleRandomizer implements Randomizer<BigDecimal> {
 
 	private List<Bound<Operation>> bounds;
 	private int total;
-	private final RandomGenerator gen;
+	private final NumberGenerator gen;
 
 	public SimpleRandomizer() {
-		this.gen = new RandomGenerator();
+		this.gen = new NumberGenerator();
 	}
 
-	public SimpleRandomizer(RandomGenerator gen) {
+	public SimpleRandomizer(NumberGenerator gen) {
 		this.gen = gen;
 	}
 
@@ -52,11 +51,12 @@ public class SimpleRandomizer implements Randomizer<Integer> {
 	}
 
 	@Override
-	public Integer generateNumber(int minDigit, int maxDigit) {
-		int base = (int) Math.pow(10, gen.randInt(minDigit, maxDigit) - 1), digit = gen.randInt(1, 9) * base;
+	public BigDecimal generateNumber(int minDigit, int maxDigit) {
+		int base = (int) Math.pow(10, gen.randInt(minDigit, maxDigit) - 1);
+		BigDecimal digit = BigDecimal.valueOf(gen.randInt(1, 9)).multiply(BigDecimal.valueOf(base));
 		while (base > 1) {
 			base /= 10;
-			digit += gen.randInt(0, 9) * base;
+			digit = digit.add(BigDecimal.valueOf(gen.randInt(0, 9) * base));
 		}
 		return digit;
 	}

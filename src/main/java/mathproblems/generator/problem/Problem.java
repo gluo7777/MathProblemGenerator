@@ -1,6 +1,8 @@
-package mathproblems.generator;
+package mathproblems.generator.problem;
 
-public abstract class Problem<T extends Number> {
+import mathproblems.generator.Operation;
+
+public class Problem<T> {
 	private final Operation[] operations;
 	private final T[] operands;
 	private T result;
@@ -16,7 +18,12 @@ public abstract class Problem<T extends Number> {
 		this.operands = operands;
 	}
 	
-	protected abstract void validateArguments(Operation[] operations, T[] operands);
+	protected void validateArguments(Operation[] operations, T[] operands) {
+		if (operations.length == 0)
+			throw new IllegalArgumentException("No operations being performed.");
+		if (operations.length + 1 != operands.length)
+			throw new IllegalArgumentException("The number of operands must be equal to operations plus one.");
+	}
 
 	public void setResult(T result) {
 		this.result = result;
@@ -33,10 +40,4 @@ public abstract class Problem<T extends Number> {
 	public final T getResult() {
 		return result;
 	}
-
-	public void setRemainder(int i) {
-		// TODO Auto-generated method stub
-		
-	}
-
 }
