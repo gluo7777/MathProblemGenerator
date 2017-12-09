@@ -13,17 +13,18 @@ public class Problem<T> {
 	 * @param operands
 	 */
 	public Problem(Operation[] operations, T[] operands) {
-		validateArguments(operations, operands);
+//		validateArguments(operations, operands);
 		this.operations = operations;
 		this.operands = operands;
 	}
 	
-	protected void validateArguments(Operation[] operations, T[] operands) {
-		if (operations.length == 0)
-			throw new IllegalArgumentException("No operations being performed.");
-		if (operations.length + 1 != operands.length)
-			throw new IllegalArgumentException("The number of operands must be equal to operations plus one.");
-	}
+	// implementation of validation should implementor's responsibility and should be done outside the scope of this class' constructor
+//	protected void validateArguments(Operation[] operations, T[] operands) {
+//		if (operations.length == 0)
+//			throw new IllegalArgumentException("No operations being performed.");
+//		if (operations.length + 1 != operands.length)
+//			throw new IllegalArgumentException("The number of operands must be equal to operations plus one.");
+//	}
 
 	public void setResult(T result) {
 		this.result = result;
