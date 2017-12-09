@@ -1,4 +1,4 @@
-package mathproblems.generator;
+package mathproblems.generator.gui;
 
 public interface UserInterface {
 	
