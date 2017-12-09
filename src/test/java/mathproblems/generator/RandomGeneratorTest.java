@@ -1,4 +1,4 @@
-package mathproblems.util;
+package mathproblems.generator;
 
 public class RandomGeneratorTest {
 	

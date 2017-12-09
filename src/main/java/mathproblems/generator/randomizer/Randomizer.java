@@ -1,6 +1,8 @@
-package mathproblems.generator;
+package mathproblems.generator.randomizer;
 
 import java.util.Map;
+
+import mathproblems.generator.Operation;
 
 /**
  * classes that implement this interface must define methods that allow for
@@ -10,7 +12,7 @@ import java.util.Map;
  *
  * @param <T>
  */
-public interface Randomizer<T extends Number> {
+public interface Randomizer<T> {
 
 	/**
 	 * Parses the map and builds a random generator based on the supplied

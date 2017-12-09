@@ -1,4 +1,4 @@
-package mathproblems.simplegenerator.randomizer;
+package mathproblems.generator.randomizer;
 
 public class Bound<T> {
 	public final T value;
