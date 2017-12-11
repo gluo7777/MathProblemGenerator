@@ -6,7 +6,8 @@ public enum Property {
 	MIN_OPERAND("operands.minimum"),
 	MAX_OPERAND("operands.maximum"),
 	MIXED_MODE("mixedMode"),
-	PROBLEM_COUNT("problem.count")
+	PROBLEM_COUNT("problem.count"),
+	FREQUENCY_ROOT("frequency")
 	;
 
 	private final String name;
