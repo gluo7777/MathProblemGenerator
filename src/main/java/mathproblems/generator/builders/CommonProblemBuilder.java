@@ -3,14 +3,19 @@ package mathproblems.generator.builders;
 import java.util.Map;
 
 import mathproblems.generator.Operation;
+import mathproblems.generator.calculator.Calculator;
 import mathproblems.generator.problem.Problem;
+import mathproblems.generator.randomizer.Randomizer;
 
 @SuppressWarnings({ "unchecked", "rawtypes" })
-public abstract class CommonProblemBuilder<T extends Problem, B extends CommonProblemBuilder<T,B>> implements ProblemBuilder<T> {
+public abstract class CommonProblemBuilder<T extends Problem, B extends CommonProblemBuilder<T, B>>
+		implements ProblemBuilder<T> {
 	private int numberOfProblems = 1;
 	private int minNumber = 2, maxNumber = 2;
 	private boolean solveProblems = false, mixedMode = false;
 	private Map<Operation, Integer> frequencies;
+	private Calculator calculator;
+	private Randomizer randomizer;
 
 	protected void validate() {
 		if (this.numberOfProblems <= 0)
@@ -56,6 +61,16 @@ public abstract class CommonProblemBuilder<T extends Problem, B extends CommonPr
 		return (B) this;
 	}
 
+	public final <C extends Calculator<T>> B setCalculator(C calculator) {
+		this.calculator = calculator;
+		return (B) this;
+	}
+
+	public final <R extends Randomizer<?>> B setRandomizer(R randomizer) {
+		this.randomizer = randomizer;
+		return (B) this;
+	}
+
 	public int getMinNumber() {
 		return minNumber;
 	}
@@ -78,6 +93,14 @@ public abstract class CommonProblemBuilder<T extends Problem, B extends CommonPr
 
 	public Map<Operation, Integer> getFrequencies() {
 		return frequencies;
+	}
+
+	public final Calculator getCalculator() {
+		return calculator;
+	}
+
+	public final Randomizer getRandomizer() {
+		return randomizer;
 	}
 
 }
