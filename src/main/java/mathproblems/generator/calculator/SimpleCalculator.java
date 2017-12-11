@@ -78,4 +78,9 @@ public class SimpleCalculator implements Calculator<Problem<BigDecimal>> {
 		}
 	}
 
+	@Override
+	public boolean isAnsweredCorrect(Problem<BigDecimal> problem, double delta) {
+		return Math.abs(problem.getResult().doubleValue() - problem.getAnswer().doubleValue()) <= delta;
+	}
+
 }

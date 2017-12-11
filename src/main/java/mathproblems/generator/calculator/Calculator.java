@@ -8,4 +8,5 @@ import mathproblems.generator.problem.Problem;
 public interface Calculator<T extends Problem> {
 	void calculate(T problem);
 	void calculate(List<T> set);
+	boolean isAnsweredCorrect(T problem, double delta);
 }
