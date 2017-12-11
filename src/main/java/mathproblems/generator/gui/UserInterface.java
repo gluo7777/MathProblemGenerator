@@ -13,7 +13,7 @@ public interface UserInterface {
 	}
 	
 	/**
-	 * Configure properties from a properties file
+	 * Configure app properties
 	 */
 	void configure();
 	
