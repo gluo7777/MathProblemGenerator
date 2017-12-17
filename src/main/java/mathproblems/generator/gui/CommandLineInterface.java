@@ -3,7 +3,6 @@ package mathproblems.generator.gui;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
@@ -51,7 +50,8 @@ public class CommandLineInterface implements UserInterface {
 	public void configure() {
 		// Ask if user wants to override default settings
 
-		String propertyFile = Thread.currentThread().getContextClassLoader().getResource(DEFAULT_CONFIG).getFile();
+//		String propertyFile = Thread.currentThread().getContextClassLoader().getResource(DEFAULT_CONFIG).getFile();
+		String propertyFile = System.getProperty("user.dir")+"\\"+DEFAULT_CONFIG;
 		try {
 			this.config.configure(propertyFile);
 			log.info("Property file location: %s", propertyFile);
